@@ -1,5 +1,6 @@
 let initialState = {
-   contactList: []
+   contactList: [],
+   keyword: ""
 };
 
 function reducer(state=initialState,action){
@@ -16,8 +17,10 @@ function reducer(state=initialState,action){
           }
         ]
       }
-  default:
-    return {...state};
+      case "SEARCH_BY_USERNAME":
+        return { ...state, keyword: payload.keyword };
+      default:
+        return { ...state };
 }
 }
 
